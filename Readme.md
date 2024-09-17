@@ -6,8 +6,6 @@ This repository contains my custom Vim configuration that enhances productivity 
 
 ### Customizations
 - **Catppuccin Macchiato Colorscheme**: A beautiful, modern color theme that is easy on the eyes.
-- **Improved Backspace Functionality**: Allows backspace over indentation, line breaks, and the start of insert mode.
-- **Mouse Support**: Mouse functionality enabled for clicking and moving the cursor (can be toggled off).
 - **Smart Indentation**: Auto and smart indentation for programming files.
 - **Space as Tabs**: Replaces tabs with spaces (tab size set to 2 spaces).
 - **Enhanced Search**:
@@ -24,6 +22,26 @@ This repository contains my custom Vim configuration that enhances productivity 
 - **Relative Line Numbers**: Easier navigation with relative line numbers.
 - **Auto-read**: Automatically reloads a file when changed from the outside.
 - **Improved Buffer Management**: Buffers with unsaved changes are hidden instead of being forced to save.
+
+### Multiple File Handling Shortcuts
+
+This configuration includes custom shortcuts to simplify handling multiple files and buffers in Vim.
+
+- **Switch Between Buffers**:
+  - `Ctrl-h`: Move to the previous buffer.
+  - `Ctrl-l`: Move to the next buffer.
+
+- **Save and Update Buffers**:
+  - `Ctrl-s`: Save the current buffer.
+  - `Ctrl-S`: Save all open buffers using `:bufdo update`.
+
+- **Buffer Navigation**:
+  - `Ctrl-a`: Select all content in the current buffer.
+  - `Ctrl-j`: Join the current line with the next line.
+  - `Ctrl-k`: Split the current line at the cursor point.
+
+- **Hidden Buffers**:
+  - Buffers with unsaved changes can be hidden and reopened without forcing you to save them, making it easy to work on multiple files at once.
 
 ## Available Functions
 
