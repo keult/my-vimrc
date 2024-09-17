@@ -175,12 +175,6 @@ nnoremap <C-k> i<CR><Esc>
 " Folding
 set foldmethod=marker
 
-" Move the cursor to the line start
-inoremap <C-h> <C-O>0
-
-" Move the cursor to the line end
-inoremap <C-l> <C-O>$
-
 " Highlight search results
 set hlsearch
 
