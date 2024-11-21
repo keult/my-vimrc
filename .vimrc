@@ -65,7 +65,7 @@ set noerrorbells
 set novisualbell
 
 " Mouse
-set mouse=a
+set mouse=
 
 " Highlight cursor line and cursor column
 set cursorline
@@ -219,13 +219,5 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" Color theme
-call plug#begin()
-
-Plug 'gerardbm/vim-atomic'
-
-call plug#end()
-
-let g:atomic_matchparen = 0
-colorscheme atomic
+colorscheme catppuccin_macchiato 
 
