@@ -223,7 +223,6 @@ set fileignorecase
 " Windows like selection behavior
 set keymodel=startsel
 set selectmode=
-" (With this, Shift+Arrow enters Select mode and typing replaces the selection.)
 
 " Ctrl+Shift+word selection
 " Normal: start a fresh selection and extend by word
@@ -244,21 +243,25 @@ inoremap <C-S-Right> <Esc>ve
 " 2. Plugins
 "----------------------------------------------------------------
 
+set nomodeline
+
 call plug#begin('~/.vim/plugged')
-Plug 'catppuccin/vim'
+" Alias the repo so PlugInstall output won't start with 'vim:'
+Plug 'catppuccin/vim', { 'as': 'catppuccin-theme' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
-" --- Theme ---
+" --- Theme (after plug#end) ---
 if has('termguicolors') | set termguicolors | endif
-set background=dark
-let g:catppuccin_flavour = 'macchiato'     " latte | frappe | macchiato | mocha
-colorscheme catppuccin
+
+colorscheme catppuccin_mocha
+
 
 " --- fzf keys ---
 let mapleader = ' '
 nnoremap <leader>f :Files<CR>
+nnoremap <C-P> :Files<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>g :Rg<CR>
 
