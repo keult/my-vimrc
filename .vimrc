@@ -241,25 +241,24 @@ inoremap <C-S-Right> <Esc>ve
 
 
 "----------------------------------------------------------------
-" 2. Plugins 
+" 2. Plugins
 "----------------------------------------------------------------
 
-" Install vim-plug automatically, if not installed yet
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-colorscheme catppuccin_macchiato 
-
-" fzf plugin
 call plug#begin('~/.vim/plugged')
+Plug 'catppuccin/vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
+" --- Theme ---
+if has('termguicolors') | set termguicolors | endif
+set background=dark
+let g:catppuccin_flavour = 'macchiato'     " latte | frappe | macchiato | mocha
+colorscheme catppuccin
+
+" --- fzf keys ---
+let mapleader = ' '
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>g :RG<CR>
+nnoremap <leader>g :Rg<CR>
 
