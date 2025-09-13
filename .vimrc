@@ -13,7 +13,7 @@ set secure
 set history=10000
 
 " Leader key to add extra key combinations
-let g:mapleader = ','
+let g:mapleader = ' '
 
 " Time delay on <Leader> key
 set timeoutlen=3000 ttimeoutlen=100
@@ -161,11 +161,11 @@ set textwidth=0
 set nomore
 
 " Show line numbers
-set number
-set numberwidth=2
+"set number
+"set numberwidth=2
 
 " Set relative line numbers
-set relativenumber
+"set relativenumber
 
 " Join / split lines
 nnoremap <C-j> J
@@ -194,19 +194,51 @@ set smartcase
 set maxmempattern=1000
 
 " Insert brackets and backslash faster
-inoremap [ []<left>
-inoremap ( ()<left>
-inoremap { {}<left>
+"inoremap [ []<left>
+"inoremap ( ()<left>
+"inoremap { {}<left>
 
 " Allows buffers with unsaved changes to be hidden instead of forcing to save changes
 set hidden
 
 " Move between buffers
-nnoremap <C-h> :bprev<CR>
+
+" --- Next buffer ---
 nnoremap <C-l> :bnext<CR>
+nnoremap <M-l>     :bnext<CR>
+nnoremap <M-Right> :bnext<CR>
+inoremap <M-l>     <C-o>:bnext<CR>
+inoremap <M-Right> <C-o>:bnext<CR>
+
+" --- Previous buffer ---
+nnoremap <C-h> :bprev<CR>
+nnoremap <M-h>     :bprev<CR>
+nnoremap <M-Left>  :bprev<CR>
+inoremap <M-h>     <C-o>:bprev<CR>
+inoremap <M-Left>  <C-o>:bprev<CR>
 
 " Ignore case when autocompletes when browsing files
 set fileignorecase
+
+" Windows like selection behavior
+set keymodel=startsel
+set selectmode=
+" (With this, Shift+Arrow enters Select mode and typing replaces the selection.)
+
+" Ctrl+Shift+word selection
+" Normal: start a fresh selection and extend by word
+nnoremap <C-S-Left>  vb
+nnoremap <C-S-Right> ve
+
+" Visual/Select: keep extending the current selection by word
+xnoremap <C-S-Left>  b
+xnoremap <C-S-Right> e
+
+" Insert: switch to Select mode, extend by word; typing will replace
+inoremap <C-S-Left>  <Esc>vb
+inoremap <C-S-Right> <Esc>ve
+
+
 
 "----------------------------------------------------------------
 " 2. Plugins 
@@ -220,4 +252,14 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 colorscheme catppuccin_macchiato 
+
+" fzf plugin
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+call plug#end()
+
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>g :RG<CR>
 
