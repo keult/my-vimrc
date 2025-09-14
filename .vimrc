@@ -1,4 +1,3 @@
-
 "----------------------------------------------------------------
 " 1. General settings
 "----------------------------------------------------------------
@@ -237,6 +236,10 @@ xnoremap <C-S-Right> e
 inoremap <C-S-Left>  <Esc>vb
 inoremap <C-S-Right> <Esc>ve
 
+" Navigate in split windows
+nnoremap <leader>q :q<Enter>
+nnoremap <leader>h <C-w><C-h>
+nnoremap <leader>l <C-w><C-l>
 
 
 "----------------------------------------------------------------
@@ -251,6 +254,7 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin-theme' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 " --- Theme (after plug#end) ---
@@ -260,7 +264,6 @@ colorscheme catppuccin_mocha
 
 
 " --- fzf keys ---
-let mapleader = ' '
 nnoremap <leader>f :Files<CR>
 nnoremap <C-P> :Files<CR>
 nnoremap <leader>b :Buffers<CR>
