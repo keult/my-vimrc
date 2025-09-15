@@ -1,18 +1,23 @@
 {
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "json.maxItemsComputed": 10000,
+
+  "window.menuBarVisibility": "toggle",
+
   "workbench.tree.indent": 14,
   "workbench.tree.renderIndentGuides": "always",
   "workbench.startupEditor": "none",
-  "json.maxItemsComputed": 10000,
+
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
-  "typescript.updateImportsOnFileMove.enabled": "always",
+  "editor.cursorBlinking": "solid",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.wordWrap": "off",
+  "editor.minimap.enabled": false,
+
   "terminal.integrated.scrollback": 5000,
   "terminal.integrated.defaultLocation": "editor",
   "terminal.integrated.tabs.defaultColor": "terminal.ansiGreen",
-  "window.menuBarVisibility": "toggle",
-  "editor.cursorBlinking": "solid",
-  "editor.cursorSmoothCaretAnimation": true,
-  "editor.wordWrap": "off",
 
   // Files and formatting
   "files.trimTrailingWhitespace": true,
@@ -51,27 +56,31 @@
     { "before": ["g", "c", "c"], "commands": ["editor.action.blockComment"] },
 
     // Window (editor group) navigation — Vim-like, via leader + h/j/k/l
-    { "before": [" ", "h"], "commands": ["workbench.action.focusLeftGroup"] },
-    { "before": [" ", "j"], "commands": ["workbench.action.focusBelowGroup"] },
-    { "before": [" ", "k"], "commands": ["workbench.action.focusAboveGroup"] },
-    { "before": [" ", "l"], "commands": ["workbench.action.focusRightGroup"] },
+    { "before": ["<leader>", "h"], "commands": ["workbench.action.focusLeftGroup"] },
+    { "before": ["<leader>", "j"], "commands": ["workbench.action.focusBelowGroup"] },
+    { "before": ["<leader> ", "k"], "commands": ["workbench.action.focusAboveGroup"] },
+    { "before": ["<leader>", "l"], "commands": ["workbench.action.focusRightGroup"] },
 
     // Split / close
-    { "before": [" ", "v"], "commands": ["workbench.action.splitEditorRight"] },
-    { "before": [" ", "s"], "commands": ["workbench.action.splitEditorDown"] },
-    { "before": [" ", "q"], "commands": ["workbench.action.closeActiveEditor"] },
+    { "before": ["<leader>", "v"], "commands": ["workbench.action.splitEditorRight"] },
+    { "before": ["<leader>", "s"], "commands": ["workbench.action.splitEditorDown"] },
+    { "before": ["<leader>", "q"], "commands": ["workbench.action.closeActiveEditor"] },
 
     // Buffers (tabs)
-    { "before": [" ", "b", "n"], "commands": ["workbench.action.nextEditor"] },
-    { "before": [" ", "b", "p"], "commands": ["workbench.action.previousEditor"] },
+    { "before": ["<leader>", "b", "n"], "commands": ["workbench.action.nextEditor"] },
+    { "before": ["<leader>", "b", "p"], "commands": ["workbench.action.previousEditor"] },
 
-    // Toggle terminal
-    { "before": [" ", "t"], "commands": ["workbench.action.terminal.toggleTerminal"] },
-
+    // Go to definitions
+    { "before": ["<leader>", "d"], "commands": ["editor.action.revealDefinition"] }, // go to definition
+    { "before": ["<leader>", "r"], "commands": ["editor.action.referenceSearch.trigger"] }, // find usages/references
+    { "before": ["<leader>", "R"], "commands": ["references-view.findReferences"] }, // open references in sidebar
+    { "before": ["<leader>", "I"], "commands": ["references-view.findImplementations"] }, // open implementations in sidebar
+    { "before": ["<leader>", "i"], "commands": ["editor.action.goToImplementation"] }, // go to implementation
   ],
 
   "vim.insertModeKeyBindings": [
     { "before": [ "j", "j" ], "after": [ "<Esc>" ] }
+
   ]
 }
 
